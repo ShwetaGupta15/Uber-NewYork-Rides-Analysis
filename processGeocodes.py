@@ -22,6 +22,7 @@ def processArgs(args):
         if val['pickup_latitude'] != 0 and val['pickup_longitude'] != 0:
             responseDict = gcApiResponse(val['pickup_latitude'],val['pickup_longitude'],Google_Cloud_Geocoder_API_Key).json()['results']
             #print(responseDict)
+            # Checking if the google API response is empty or not
             if len(responseDict) > 0:
                 for featureDict in responseDict[0]['address_components']:
                     if 'route' in featureDict['types']:
